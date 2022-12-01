@@ -1,1 +1,2 @@
-This is shell permission project
+Alx system engineering devops project
+Shell, basics and shell permission
