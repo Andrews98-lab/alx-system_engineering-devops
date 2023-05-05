@@ -1,6 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# This displays all active IPv4 IPs on the machine it's executed on.
+# Use the `ip addr` command to list all network interfaces and their associated IP addresses
+# Use `grep` to select lines containing the string "inet ", which indicates an IPv4 address
+# Use `awk` to extract the second field from each line, which is the IP address itself
+# Use `cut` to remove the subnet mask from the IP address
+ip addr | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1
 
-ip -4 addr show | grep inet | awk '{print $2}' | cut -d '/' -f 1
 
