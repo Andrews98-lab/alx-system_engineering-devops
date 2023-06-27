@@ -1,1 +1,2 @@
-0x0D. Web stack debugging #0
+
+This project focuses on web stack debugging and requires the student to debug a web stack by fixing a specific issue. The task involves running Apache on a Docker container and ensuring that it returns a page containing the text "Hello Holberton" when queried at the root. The project provides background context, concepts to review, installation instructions for Docker, resource suggestions, general requirements, and a specific task description0x0D. Web stack debugging #0
