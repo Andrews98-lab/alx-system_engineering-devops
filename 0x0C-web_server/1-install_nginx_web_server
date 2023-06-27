@@ -2,10 +2,28 @@
 # Install nginx on your web-01 server
 # Nginx should be listening on port 80
 # When querying Nginx at its root / with a GET request (requesting a page) 
-# using curl, it must return a page that contains the string Holberton School
+# using curl, it must return hell Word!
 
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.html
+apt-get update
+apt-get install -y nginx
+
+# Configure Nginx to listen on port 80
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.htm;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}" > /etc/nginx/sites-available/default
+
+# Set up the index.html page
+echo 'Hello Word!' > /var/www/html/index.html
+
+# Start the Nginx service
 service nginx start
